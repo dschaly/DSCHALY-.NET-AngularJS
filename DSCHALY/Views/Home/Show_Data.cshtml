@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .tableData {
+            border-left: solid 1px #D8C3C3;
+            border-top: solid 1 px #D8C3C3;
+        }
+
+        .tableData tr {
+
+        }
+
+        .tableData td, .tableData th {
+            border-right: solid 1px #D8C3C3;
+            border-bottom: solid 1px #D8C3C3;
+            text-align: left;
+            padding: 5px;
+        }
+
+        .tableData td {
+
+        }
+
+        .tableData th {
+            background-color: #FAFAFA;
+            padding: 7px 5px;
+            border-bottom: #9C9C9C;
+        }
+
+        .odd {
+            background-color: #F3F3F3;
+        }
+
+        .even {
+            background-color: #FFF;
+        }
+    </style>
+</head>
+<body ng-app="Homeapp">
+    <div ng-controller="HomeController">
+        <table class="tableData">
+            <tr>
+                <th>Sr. no</th>
+                <th>E-mail</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="e in register" ng-class-even="'even'" ng-class-odd="'odd'">
+                <td ng-bind="e.Sr_no"></td>
+                <td ng-bind="e.Email"></td>
+                <td ng-bind="e.Password"></td>
+                <td ng-bind="e.Name"></td>
+                <td ng-bind="e.Address"></td>
+                <td ng-bind="e.City"></td>
+                <td><a href="/Home/update_data?id={{e.Sr_no}}">Update</a></td>
+                <td><a ng-click="deleterecord(e.Sr_no)">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Angular/Controllers/HomeAngularJS.js"></script>
+</body>
+</html>
